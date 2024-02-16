@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: #F0F0F0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+/* Navbar styles */
+
+nav {
+    padding: 1rem;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+    font-size: 14pt;
+    font-weight: 300;
+    padding-right: 2rem;
+}
+
+
+nav a {
+    color: black;
+    padding-bottom: 2px;
+}
+
+nav a:hover {
+    border-bottom: 1px solid black;
+}
+
+/* Bloc image principale */
+
+.image-container img {
+    max-width: 41%;
+}
+
+.image-container {
+    position: relative;
+    left: 8%;
+    color: white;
+}
+
+.absolute-title {
+    position: absolute;
+    left: 18%;
+    top: 45%;
+    margin: 0;
+    text-shadow: #f0f0f027 2px 3px 1px;
+}
+
+.absolute-title-below {
+    position: absolute;
+    left: 18%;
+    top: 73%;
+    margin: 0;
+}
+
+.main-title-h1 {
+    font-weight: 500;
+    font-size: 6rem;
+}
+
+.main-title-h2 {
+    font-weight: 400;
+}
+
+/* Mes creations */
+
+.texte-travail-sylvie {
+    font-family: 'Anek Malayalam', sans-serif;
+}
+
+.texte-travail-sylvie h1 {
+    font-weight: 500;
+}
+
+.texte-travail-sylvie h2, .texte-travail-sylvie h3 {
+    font-weight: 300;
+    padding: 0.2rem;
+}
+
+.travail-sylvie-img img {
+    width: 59vw;
+    max-width: 1200px;
+}
+
+.travail-container {
+    display: flex;
+}
+
+/* Footer */
+
+footer {
+    background-color: #696969;
+}
+
+.footer-columns-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 4.5rem;
+    margin-top: 4rem;
+}
+
+.footer-columns-container a {
+    color:#F0F0F0;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
