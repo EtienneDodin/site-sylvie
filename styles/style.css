@@ -19,6 +19,13 @@ ul {
 
 /* Navbar styles */
 
+.contact-nav {
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
 nav {
     padding: 1rem;
 }
@@ -51,7 +58,6 @@ nav a:hover {
 
 .image-container {
     position: relative;
-    left: 8%;
     color: white;
 }
 
@@ -70,12 +76,19 @@ nav a:hover {
     margin: 0;
 }
 
-.main-title-h1 {
+/* TITLE STYLING */
+
+.main-style-h1 {
     font-weight: 500;
     font-size: 6rem;
 }
 
-.main-title-h2 {
+.sec-style-h1 {
+    font-weight: 500;
+    font-size: 5rem;
+}
+
+.main-style-h2 {
     font-weight: 400;
 }
 
