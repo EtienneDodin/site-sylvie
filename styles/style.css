@@ -17,20 +17,26 @@ ul {
     list-style-type: none;
 }
 
-/* Navbar styles */
-
-.contact-nav {
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
+/* NAVBAR STYLES */
 
 nav {
     padding: 1rem;
 }
 
-nav ul {
+nav a {
+    color: black;
+    padding-bottom: 2px;
+}
+
+.contact-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Display de la petite barre nav */
+
+.main-nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -40,17 +46,33 @@ nav ul {
     padding-right: 2rem;
 }
 
+/* Expand bottom border on hover */
+/* TO EDIT */
 
-nav a {
-    color: black;
-    padding-bottom: 2px;
+.main-nav a:link,
+.main-nav a:visited {
+  color: #333;
+  position: relative;
+  padding-bottom: 5px;
 }
 
-nav a:hover {
-    border-bottom: 1px solid black;
+.main-nav a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333;
+    bottom: 0;
+    left: 0;
+    transform: scale(0);
+    transition: .2s all ease-out;
 }
 
-/* Bloc image principale */
+.main-nav a:hover::after {
+    transform: scale(1);
+}
+
+/* Accueil - Bloc image principale */
 
 .image-container img {
     max-width: 41%;
@@ -76,7 +98,7 @@ nav a:hover {
     margin: 0;
 }
 
-/* TITLE STYLING */
+/* Title styling */
 
 .main-style-h1 {
     font-weight: 500;
@@ -102,7 +124,8 @@ nav a:hover {
     font-weight: 500;
 }
 
-.texte-travail-sylvie h2, .texte-travail-sylvie h3 {
+.texte-travail-sylvie h2,
+.texte-travail-sylvie h3 {
     font-weight: 300;
     padding: 0.2rem;
 }
@@ -114,6 +137,19 @@ nav a:hover {
 
 .travail-container {
     display: flex;
+}
+
+/* Contact */
+
+.container-wrapper {
+    margin-top: 5.5rem;
+}
+
+.contact-titles {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.3rem;
 }
 
 /* Footer */
@@ -131,7 +167,7 @@ footer {
 }
 
 .footer-columns-container a {
-    color:#F0F0F0;
+    color: #F0F0F0;
 }
 
 .footer-column {
