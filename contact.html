@@ -20,8 +20,8 @@
 
     <body>
         <header>
-            <nav class="contact-nav">
-                <a href="index.html"><span class="sec-style-h1">Sylvie Buatois</span></a>
+            <nav class="contact-header">
+                <a href="index.html"><span class="sec-bold-title">Sylvie Buatois</span></a>
                 <ul class="main-nav">
                     <li><a href="index.html">Accueil</a></li>
                     <li><a href="mes-creations.html">Mes créations</a></li>
@@ -31,16 +31,68 @@
         </header>
 
         <main>
-            <div class="container-wrapper">
-                <div class="contact-titles">
-                    <h1 class="main-style-h2">N'hésitez pas à me contacter pour toute demande.</h1>
-                    <h2 class="main-style-h2">Devis, réalisation de pièces, renseignements..</h2>
+            <section>
+                <div class="container-wrapper">
+                    <div class="contact-titles">
+                        <h1 class="regular-title">N'hésitez pas à me contacter pour toute demande</h1>
+                        <h2 class="main-style-h2">Devis, réalisation de pièces, renseignements..</h2>
+                        <h3 class="main-style-h2">En remplissant ce formulaire.</h3>
+                    </div>
+                    <div class="form">
+                        <!-- add netlify attribute -->
+                        <form name="contact" method="post">
+                            <div class="form-sublayer">
+                                <label for="nom">NOM</label>
+                                <input type="text" id="nom" name="nom">
+                            </div>
+                           
+                            <div class="form-sublayer">
+                                <label for="email">EMAIL</label>
+                                <input type="text" id="email" name="email">
+                            </div>
+
+                            <div class="form-sublayer">
+                                <label for="subject">SUJET</label>
+                                <input type="text" id="subject" name="sujet">
+                            </div>
+
+                            <div class="form-sublayer">
+                                <label for="message">VOTRE MESSAGE</label>
+                                <textarea id="message" name="message"></textarea>
+                            </div>
+
+                            <div class="form-sublayer">
+                                <button type="submit">ENVOYER</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <div class="main-footer-container">
+                <div>
+                    <ul class="footer-column">
+                        <li><a href="index.html">Accueil - Découvrez mes créations</a></li>
+                        <li><a href="mes-creations.html">Mon travail</a></li>
+                        <li><a href="contact.html">Contactez-moi</a></li>
+                    </ul>
                 </div>
                 <div>
-                    <!-- form -->
+                    <ul class="footer-column">
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="mailto:sylvie.buatois@laposte.net">sylvie.buatois@laposte.net</a></li>
+                    </ul>
                 </div>
             </div>
+
+            <div class="subfooter">
+                <span>© Tous droits réservés - Sylvie Buatois, céramiste Raku - Réalisation Etienne Dodin - Photographies Jack Varlet</span>
+            </div>
+
+        </footer>
         
-        </main>
     </body>
 </html>
