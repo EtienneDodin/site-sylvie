@@ -1,0 +1,1 @@
+<img src="images/chouette.jpg" alt="chouette" class="max-w-16 border">
