@@ -2,7 +2,7 @@
     <main>
         <div class="bg-neutral-200 flex flex-col lg:flex-row md:justify-around shadow-sm pb-4">
             <!-- Main headings -->
-            <div class="flex flex-col items-center gap-16" data-aos="fade-right">
+            <div class="flex flex-col items-center gap-16">
                 <div class="flex flex-col gap-20 md:gap-28 p-8 items-center border-style">
                     {{-- Main title --}}
                     <h1 class="font-medium text-center text-7xl md:text-8xl mt-16 text-amber-900">Sylvie Buatois</h1>
@@ -39,7 +39,7 @@
         <section id="creations" class="px-10 md:px-20">
 
             <!-- First slider -->
-            <div class="flex flex-col items-center mb-16" x-data="{ open: false, modalContent: {} }">
+            <div class="flex flex-col items-center mb-4" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
                 <h3 class="font-semibold font-anek text-5xl pt-12 pb-10 md:pb-16">Les Ours</h3>
                 <!-- Main + thumbs section -->
@@ -58,7 +58,7 @@
                                                 {{-- Image --}}
                                                 <div class="max-w-5xl max-h-80 md:max-h-slider-image">
                                                     <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                        class="object-scale-down h-80 md:h-slider-image shadow-sm shadow-slate-300">
+                                                        class="object-scale-down h-80 md:h-slider-image rounded-sm shadow-sm shadow-slate-300">
                                                 </div>
     
                                                 {{-- Vendu --}}
@@ -86,17 +86,20 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-4">
+                    <div thumbsSlider="" class="mySwiper py-6">
                         <div class="swiper-wrapper">
     
                             @foreach ($creations as $creation)
                                 @if ($creation->category_id === 1)
+
                                     @foreach ($creation->images as $image)
-                                        <div class="swiper-slide opacity-40 max-w-20 max-h-14">
+                                        <div class="swiper-slide max-w-20 max-h-14">
+
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down h-14">
+                                                class="object-scale-down h-14 rounded-sm">
                                         </div>
                                     @endforeach
+
                                 @endif
                             @endforeach
     
@@ -149,13 +152,13 @@
             </div>
 
             <!-- Second slider -->
-            <div class="flex flex-col items-center mb-16" x-data="{ open: false, modalContent: {} }">
+            <div class="flex flex-col items-center mb-4" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
                 <h3 class="font-semibold font-anek text-5xl pt-12 pb-10 md:pb-16">Les Oiseaux</h3>
                 <!-- Main + thumbs section -->
                 <div class="flex flex-col w-screen items-center">
                     {{-- Main --}}
-                    <div class="swiper w-full max-w-110" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="swiper w-full max-w-110" data-aos="fade-right" data-aos-offset="-250" data-aos-duration="1000">
                         <div class="swiper-wrapper mb-12">
     
                             @foreach ($creations as $creation)
@@ -168,7 +171,7 @@
                                                 {{-- Image --}}
                                                 <div class="max-w-5xl max-h-80 md:max-h-slider-image">
                                                     <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                        class="object-scale-down h-80 md:h-slider-image shadow-sm shadow-slate-300">
+                                                        class="object-scale-down h-80 md:h-slider-image rounded-sm shadow-sm shadow-slate-300">
                                                 </div>
     
                                                 {{-- Vendu --}}
@@ -196,7 +199,7 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-4">
+                    <div thumbsSlider="" class="mySwiper py-6">
                         <div class="swiper-wrapper">
     
                             @foreach ($creations as $creation)
@@ -260,13 +263,13 @@
             </div>
 
             <!-- Third slider -->
-            <div class="flex flex-col items-center mb-16" x-data="{ open: false, modalContent: {} }">
+            <div class="flex flex-col items-center mb-4" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
                 <h3 class="font-semibold font-anek text-5xl pt-12 pb-10 md:pb-16">Les Marins</h3>
                 <!-- Main + thumbs section -->
                 <div class="flex flex-col w-screen items-center">
                     {{-- Main --}}
-                    <div class="swiper w-full max-w-110" data-aos="fade-left" data-aos-offset="-250" data-aos-duration="850">
+                    <div class="swiper w-full max-w-110">
                         <div class="swiper-wrapper mb-12">
     
                             @foreach ($creations as $creation)
@@ -279,7 +282,7 @@
                                                 {{-- Image --}}
                                                 <div class="max-w-5xl max-h-80 md:max-h-slider-image">
                                                     <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                        class="object-scale-down h-80 md:h-slider-image shadow-sm shadow-slate-300">
+                                                        class="object-scale-down h-80 md:h-slider-image rounded-sm shadow-sm shadow-slate-300">
                                                 </div>
     
                                                 {{-- Vendu --}}
@@ -307,7 +310,7 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-4">
+                    <div thumbsSlider="" class="mySwiper py-6">
                         <div class="swiper-wrapper">
     
                             @foreach ($creations as $creation)
@@ -370,13 +373,13 @@
             </div>
 
             <!-- Animaux des sous-bois -->
-            <div class="flex flex-col items-center mb-16" x-data="{ open: false, modalContent: {} }">
+            <div class="flex flex-col items-center mb-4" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
-                <h3 class="font-semibold font-anek text-5xl pt-12 pb-10 md:pb-16">Les Animaux des sous-bois</h3>
+                <h3 class="font-semibold font-anek text-5xl text-center pt-12 pb-10 md:pb-16">Les Animaux des sous-bois</h3>
                 <!-- Main + thumbs section -->
                 <div class="flex flex-col w-screen items-center">
                     {{-- Main --}}
-                    <div class="swiper w-full max-w-110" data-aos="fade-right" data-aos-offset="-300" data-aos-duration="1000">
+                    <div class="swiper w-full max-w-110" data-aos="fade-down" data-aos-offset="-300" data-aos-duration="1000">
                         <div class="swiper-wrapper mb-12">
     
                             @foreach ($creations as $creation)
@@ -389,7 +392,7 @@
                                                 {{-- Image --}}
                                                 <div class="max-w-5xl max-h-80 md:max-h-slider-image">
                                                     <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                        class="object-scale-down h-80 md:h-slider-image shadow-sm shadow-slate-300">
+                                                        class="object-scale-down h-80 md:h-slider-image rounded-sm shadow-sm shadow-slate-300">
                                                 </div>
     
                                                 {{-- Vendu --}}
@@ -417,7 +420,7 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-4">
+                    <div thumbsSlider="" class="mySwiper py-6">
                         <div class="swiper-wrapper">
     
                             @foreach ($creations as $creation)
@@ -481,7 +484,7 @@
             </div>
 
             <!-- Exotiques -->
-            <div class="flex flex-col items-center mb-24" x-data="{ open: false, modalContent: {} }">
+            <div class="flex flex-col items-center mb-16" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
                 <h3 class="font-semibold font-anek text-5xl pt-12 pb-10 md:pb-16">Les Exotiques</h3>
                 <!-- Main + thumbs section -->
@@ -500,7 +503,7 @@
                                                 {{-- Image --}}
                                                 <div class="max-w-5xl max-h-80 md:max-h-slider-image">
                                                     <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                        class="object-scale-down h-80 md:h-slider-image shadow-sm shadow-slate-300">
+                                                        class="object-scale-down h-80 md:h-slider-image rounded-sm shadow-sm shadow-slate-300">
                                                 </div>
     
                                                 {{-- Vendu --}}
@@ -528,7 +531,7 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-4">
+                    <div thumbsSlider="" class="mySwiper py-6">
                         <div class="swiper-wrapper">
     
                             @foreach ($creations as $creation)

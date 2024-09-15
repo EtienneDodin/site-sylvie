@@ -6,7 +6,7 @@
                 <div class="flex flex-col gap-6">
                     <div class="pt-8">
                         <h1 class="text-3xl mb-2 font-medium">Politique de confidentialité</h1>
-                        <p>Août 2024</p>
+                        <p>{{ ucfirst(\Carbon\Carbon::now()->translatedFormat('F Y')) }}</p>
                     </div>
 
                     <p>La présente Politique de confidentialité décrit les traitements mis en œuvre par Sylvie Buatois

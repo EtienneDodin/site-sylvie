@@ -12,22 +12,23 @@
         <div class="flex flex-wrap justify-center gap-10 px-6">
             {{-- Cards --}}
             @foreach ($creations as $creation)
-                <div class="bg-gray-50 flex flex-col gap-11 rounded-lg shadow py-6 px-20 items-center">
+                <div class="bg-gray-50 flex flex-col gap-11 rounded-lg shadow py-6 px-16 items-center">
                     <div class="flex flex-col gap-4 items-center">
 
-                        @if ($creation->images->count() > 0)
+                        <div class="my-6 flex justify-center items-center w-80 h-60">
+                            {{-- Display image if exists --}}
+                            @if ($creation->images->count() > 0)
 
-                            {{-- Select first image --}}
-                            @php
-                                $image = $creation->images->first();
-                            @endphp
+                                {{-- Select first image --}}
+                                @php
+                                    $image = $creation->images->first();
+                                @endphp
 
-                            {{-- display --}}
-                            <div class="flex justify-center">
-                                <img class="py-6 max-w-sm" src="{{ $image->path }}" alt="{{ $creation->description }}">
-                            </div>
-                            
-                        @endif
+                                {{-- display --}}
+                                <img class="object-scale-down h-60" src="{{ $image->path }}" alt="{{ $creation->description }}">
+
+                            @endif
+                        </div>
 
                         {{-- Content --}}
                         <div class="flex flex-col gap-3 items-center">
@@ -66,12 +67,12 @@
 
                                 {{-- Confirmation modal window --}}
 
-                                {{-- Black background --}}
-                                <div x-show="open" x-cloak class="absolute top-0 left-0 w-full h-full bg-black/50"></div>
+                                {{-- Dark overlay --}}
+                                <div x-show="open" x-cloak x-transition:enter.duration.200ms x-transition:leave.duration.200ms class="fixed top-0 left-0 w-full h-full bg-black/50"></div>
                                 {{-- Container --}}
-                                <div x-show="open" x-transition x-cloak @click.outside="open = false" class="fixed left-0 top-20 w-full h-5/6 flex justify-center">
+                                <div x-show="open" x-transition x-cloak class="fixed left-0 top-20 w-full h-full flex justify-center items-center">
                                     {{-- Modal --}}
-                                    <div class="bg-gray-200 flex flex-col py-24 items-center gap-24 rounded border shadow z-[1] w-8/12">
+                                    <div @click.outside="open = false" class="bg-gray-200 flex flex-col py-24 items-center gap-24 rounded border shadow z-[1] w-1/2">
                                         <p class="font-semibold text-3xl">Êtes-vous sûr de vouloir supprimer cette création ?</p>
                                         <div class="flex gap-20">
                                             <button type="submit"

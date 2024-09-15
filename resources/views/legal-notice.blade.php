@@ -41,9 +41,10 @@
                 <div class="flex flex-col gap-4 mb-12">
                     <h3 class="font-semibold">Propriété intellectuelle</h3>
                     <p>Les images présentes sur le site sont réalisation et propriété exclusive de Jack
-                        Varlet (<a href="https://www.jack-varlet.fr/" class="underline" target="_blank">www.jack-varlet.fr</a>). Toute
+                        Varlet (<a href="https://www.jack-varlet.fr/" class="underline decoration-gray-400" target="_blank">www.jack-varlet.fr</a>). Toute
                         reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle,
                         de ces éléments est strictement interdite sans l’accord exprès par écrit de Jack Varlet.</p>
+                    <p>Ce site contient des éléments graphiques (éléments de menu) de Solar Line Duotone Icons, réalisés par Solar Icons.</p>
                 </div>
             </section>
         </div>

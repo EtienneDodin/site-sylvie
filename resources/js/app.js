@@ -5,7 +5,6 @@ import Swiper from 'swiper/bundle';
 // import styles bundle
 import 'swiper/css/bundle';
 
-
 // EmailJS
 emailjs.init({
   publicKey: "QTujNYOJChXbqMu3A",
@@ -55,14 +54,12 @@ for (let i = 0; i < customSliders.length; i++) {
   });
 
   const swiper = new Swiper('.swiper-' + i, {
-    // Optional parameters
+    // Parameters
     direction: 'horizontal',
-
     pagination: {
       el: '.swiper-pagination',
       clickable: true,
     },
-
     navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
@@ -70,29 +67,24 @@ for (let i = 0; i < customSliders.length; i++) {
     thumbs: {
       swiper: swiperThumb,
     },
+    on: {
+      slideChange: function() {
+        const activeIndex = this.activeIndex;
+
+        const thumbs = document.querySelectorAll('.mySwiper-' + i + ' .swiper-slide');
+        thumbs.forEach((thumb, index) => {
+          if (index === activeIndex) {
+            thumb.classList.add('opacity-100');
+            thumb.classList.remove('opacity-40');
+          } else {
+            thumb.classList.add('opacity-40');
+            thumb.classList.remove('opacity-100');
+          }
+        });
+      }
+    }
 
   });
 
 };
 
-// Handle opacity changes on thumbnails using MutationObserver
-
-// const observer = new MutationObserver((mutationsList) => {
-//   for (const mutation of mutationsList) {
-//     if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-//       const target = mutation.target;
-//       if (target.classList.contains('swiper-slide-thumb-active')) {
-//         target.classList.add('opacity-100');
-//         target.classList.remove('opacity-40');
-//       } else {
-//         target.classList.add('opacity-40');
-//         target.classList.remove('opacity-100');
-//       }
-//     }
-//   }
-// });
-
-// const thumbs = document.querySelectorAll('.swiper-slide');
-// thumbs.forEach(thumb => {
-//   observer.observe(thumb, { attributes: true });
-// });

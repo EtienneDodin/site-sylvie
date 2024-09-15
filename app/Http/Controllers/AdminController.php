@@ -27,7 +27,7 @@ class AdminController extends Controller
     public function rules(): array
     {
         return [
-            'name' => 'required|max:255',
+            'name' => 'required',
             'sold' => 'boolean',
             'description' => 'required|max:255',
             'dimensions' => 'nullable|max:255',
@@ -35,6 +35,24 @@ class AdminController extends Controller
             'price' => 'numeric|nullable',
             'category_id' => 'required|integer',
             'image' => 'image|mimes:jpeg,jpg,png,gif,svg,webp|max:2048',
+        ];
+    }
+
+    /**
+     * Custom validation messages.
+     */
+
+    public function messages(): array
+    {
+        return [
+            'name.required' => 'Le nom de la création est requis.',
+            'description.required' => 'La description de la création est requise.',
+            'description.max' => 'La description de la création ne doit pas dépasser 255 caractères.',
+            'price.numeric' => 'Le prix de la création doit être un nombre sans le symbole €.',
+            'category_id.required' => 'La catégorie de la création est requise.',
+            'image.image' => 'Le fichier doit être une image.',
+            'image.mimes' => 'Le fichier doit être une image de type jpeg, jpg, png, gif, svg ou webp.',
+            'image.max' => 'Le fichier ne doit pas dépasser 2 Mo.',
         ];
     }
 
@@ -53,7 +71,7 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate($this->rules());
+        $validatedData = $request->validate($this->rules(), $this->messages());
 
         $creation = new Creation();
         $creation->name = $validatedData['name'];
