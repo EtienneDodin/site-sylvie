@@ -67,7 +67,7 @@ class AdminController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Global store of a new resource, creation and related images.
      */
     public function store(Request $request)
     {
@@ -91,13 +91,25 @@ class AdminController extends Controller
             $image->path = $validatedData['image'];
             $image->creation_id = $creation->id;
             $image->save();
-        };
+        }
 
-        return redirect()->route('creations.index');
+        return redirect()->route('creations.index')->with('status', 'Création ajoutée avec succès.');
 
     }
 
-    // Store a new image for a given creation
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(Creation $creation)
+    {
+        $categories = Category::all();
+        
+        return view('creations.edit', compact('categories', 'creation'));
+    }
+
+    /**
+     * Store a new image for a given creation.
+     */
 
     public function storeImage(Request $request, Creation $creation)
     {
@@ -113,47 +125,40 @@ class AdminController extends Controller
             $image->path = $validatedData['image'];
             $image->creation_id = $creation->id;
             $image->save();
-        };
+        }
 
-        return redirect()->route('creations.index');
+        return redirect()->route('creations.edit', $creation->id)->with('status', 'Image ajoutée avec succès.');
     }
 
     /**
-     * Display the specified resource.
+     * Delete an image.
      */
-    public function show(Creation $creation)
-    {
-        return view('creations.show', compact('creation'));
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Creation $creation)
+    public function destroyImage(Image $image)
     {
-        $categories = Category::all();
-        // $images = Image::where('creations_id', $creation->id)->get();
-        
-        return view('creations.edit', compact('categories', 'creation'));
+        // Store creation id before deleting image
+        $creationId = $image->creation_id;
+
+        // Remove '/storage/' from file path
+        $filePath = str_replace('/storage/', '', $image->path);
+
+        // Delete image file
+        if (Storage::disk('public')->exists($filePath)) {
+            Storage::disk('public')->delete($filePath);
+        }
+
+        // Delete image
+        $image->delete();
+
+        return redirect()->route('creations.edit', $creationId)->with('status', 'Image supprimée avec succès.');
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Creation $creation, Image $image)
-    {
-        // $creation->update($request->all());
-        
+    public function update(Request $request, Creation $creation)
+    {        
         $validatedData = $request->validate($this->rules());
-
-        // dd($validatedData);
-
-        if ($request->hasFile('image')) {
-            $path = Storage::disk('public')->put('image', $request->file('image'));
-            $validatedData['image'] = '/storage/' . $path;
-
-            $image->path->update($validatedData['image']);            
-        };
         
         $creation->name->update($validatedData['name']);
         $creation->sold->update($validatedData['sold']);
@@ -172,11 +177,20 @@ class AdminController extends Controller
     public function destroyCreation(Creation $creation)
     {
         foreach ($creation->images as $image) {
+            // Remove '/storage/' from file path
+            $filePath = str_replace('/storage/', '', $image->path);
+
+            // Delete image file
+            if (Storage::disk('public')->exists($filePath)) {
+                Storage::disk('public')->delete($filePath);
+            }
+
+            // Delete image
             $image->delete();
-        };
+        }
         
         $creation->delete();
         
-        return redirect()->route('creations.index');
+        return redirect()->route('creations.index')->with('status', 'Création supprimée avec succès.');
     }
 }

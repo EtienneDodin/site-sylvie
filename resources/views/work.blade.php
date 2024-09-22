@@ -2,7 +2,7 @@
     <main>        
         <!-- Toutes les pièces sont modelées en grès -->
         <section>
-            <div class="bg-card-orange flex flex-col lg:flex-row items-center rounded-lg px-4 lg:ml-4 justify-around gap-6">
+            <div class="bg-card-orange flex flex-col lg:flex-row items-center rounded-lg px-4 pb-4 lg:pb-0 lg:ml-4 justify-around gap-6">
                 <div class="max-w-xl">
                     <p class="font-medium leading-relaxed px-6 py-8 text-gray-800 text-2xl">Toutes les pièces sont modelées en grès, puis cuites et enfumées. Mes créations sont toutes des pièces uniques nées de ma rencontre et ma fascination pour l'animal.</p>
                 </div>
@@ -39,7 +39,7 @@
         <!-- Expo Avanne -->
         <section class="py-20">
             <div class="flex flex-col lg:flex-row justify-around items-center gap-10">
-                <div class="flex flex-col gap-16 py-8 px-4">
+                <div class="flex flex-col gap-16 pb-8 px-4">
                     <h2 class="font-medium text-2xl text-center text-amber-900">Les sculptures mises en décor par l'artiste lors des expositions.</h2>
                     <h2 class="text-center text-xl">Photographie de l'exposition d'Avanne-Aveney en avril 2024.</h2>
                 </div>

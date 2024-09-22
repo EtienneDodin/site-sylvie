@@ -4,17 +4,17 @@
         <section>
             {{-- Headings --}}
             <div class="flex justify-center">
-                <div class="py-20 px-12 flex flex-col gap-10">
+                <div class="py-20 px-12 flex flex-col gap-12">
                     <h1 class="font-medium text-amber-900 text-7xl">Sylvie Buatois</h1>
-                    <h2 class="font-medium text-4xl">N'hésitez pas à me contacter pour toute demande</h2>
-                    <h2 class="font-medium text-3xl">Devis, réalisation de pièces, renseignements..</h2>
+                    <h2 class="font-medium text-4xl">N'hésitez pas à me contacter pour tout renseignement.</h2>
+                    {{-- <h2 class="font-medium text-3xl">Pour tout renseignement.</h2> --}}
                     <h3 class="font-regular text-xl">En remplissant ce formulaire.</h3>
                 </div>
             </div>
 
             <!-- Form -->
             <div class="flex justify-center">
-                <form id="contact" class="border flex flex-col items-center gap-10 px-20 pb-10">
+                <form id="contact" class="flex flex-col items-center gap-10 px-20 pb-10">
                     @csrf
                     <!-- Name -->
                     <div class="flex flex-col items-center gap-2">
@@ -68,10 +68,10 @@
             <div class="absolute top-0 left-0 w-full h-screen bg-black/20"></div>
 
             {{-- Modal --}}
-            <div @click.outside="showAlert = false" class="bg-gray-100 w-1/4 z-10 flex flex-col gap-12 items-center px-24 py-12 border border-gray-300 rounded-lg">
-                <p x-text="message" class="font-normal font-anek"></p>
+            <div @click.outside="showAlert = false" class="bg-gray-100 w-1/4 z-10 flex flex-col gap-10 items-center px-16 py-12 border border-gray-300 rounded-lg">
+                <p x-text="message" class="font-semibold font-anek"></p>
 
-                <button @click="showAlert = false" class="rounded-md py-1.5 w-32 border-2 bg-slate-50 hover:bg-slate-600 hover:text-gray-200 transition duration-300 ease-in">
+                <button @click="showAlert = false" class="rounded-md py-1.5 w-28 border-2 bg-slate-50 hover:bg-slate-600 hover:text-gray-200 transition duration-300 ease-in">
                     OK
                 </button>
             </div>

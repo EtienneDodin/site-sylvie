@@ -9,7 +9,7 @@
         <div class="py-8 flex flex-col gap-7 items-center">
 
             <div class="flex flex-col gap-3 items-center">
-                <label for="name">Nom de la création</label>
+                <label for="name" class="font-semibold">Nom de la création</label>
                 <input type="text" id="name" name="name" value="{{ old('name') }}" class="rounded-md border-gray-300 w-64">
 
                 @error('name')
@@ -24,7 +24,7 @@
             </div>
     
             <div class="flex flex-col gap-3 items-center">
-                <label for="description">Description</label>
+                <label for="description" class="font-semibold">Description</label>
                 <textarea id="description" name="description" value="{{ old('description') }}" class="rounded-md border-gray-300 w-64 h-28"></textarea>
 
                 @error('description')
@@ -33,7 +33,7 @@
             </div>
     
             <div class="flex flex-col gap-3 items-center">
-                <label for="dimensions">Dimensions</label>
+                <label for="dimensions" class="font-semibold">Dimensions</label>
                 <input type="text" id="dimensions" name="dimensions" value="{{ old('dimensions') }}" class="rounded-md border-gray-300 w-64">
             </div>
     
@@ -44,7 +44,7 @@
             </div>
     
             <div class="flex flex-col gap-3 items-center">
-                <label for="price">Prix</label>
+                <label for="price" class="font-semibold">Prix</label>
                 <input type="text" id="price" name="price" class="rounded-md border-gray-300 w-64">
 
                 @error('price')
@@ -53,7 +53,7 @@
             </div>
     
             <div class="flex flex-col gap-3 items-center">
-                <label for="category_id">Catégorie</label>
+                <label for="category_id" class="font-semibold">Catégorie</label>
 
                 <select name="category_id" id="category_id" class="w-64 border-gray-300 rounded-md">
     
@@ -72,8 +72,8 @@
     
             <div class="flex gap-6 items-center" x-data="{ imagePreview: '' }">
                 <div class="flex flex-col gap-4 items-center">
-                    <label for="image">Ajouter des images</label>
-                    <input type="file" id="image" name="image" accept="image/*" @change="imagePreview = URL.createObjectURL($event.target.files[0])">
+                    <label for="image" class="font-semibold">Ajouter une image</label>
+                    <input type="file" id="image" name="image" class="file:text-amber-800 file:bg-gray-200 hover:file:bg-gray-300 file:px-3 file:py-1.5 file:mr-2 file:border file:rounded text-gray-600 mt-2" accept="image/*" @change="imagePreview = URL.createObjectURL($event.target.files[0])">
 
                     @error('image')
                         <p class="text-rose-700">{{ $message }}</p>

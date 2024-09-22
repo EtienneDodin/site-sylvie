@@ -57,10 +57,10 @@
 
             <!-- Menu -->
             {{-- Dark opacity background --}}
-            <div x-show="open" x-cloak x-transition.duration.80ms.origin.top.left
+            <div x-show="open" x-cloak x-transition.duration.100ms.origin.left
                     class="fixed z-10 top-0 left-0 w-full h-full bg-black/50"></div>
 
-            <div x-show="open" x-cloak x-transition.duration.80ms.origin.top.left @click.outside="open = false"
+            <div x-show="open" x-cloak x-transition.duration.100ms.origin.left @click.outside="open = false"
                 class="fixed top-0 z-10 flex flex-col gap-80 items-center bg-light-gray">
                 {{-- Nav and footer --}}
                 <div class="flex flex-col justify-around h-96 items-center gap-10">

@@ -158,7 +158,7 @@
                 <!-- Main + thumbs section -->
                 <div class="flex flex-col w-screen items-center">
                     {{-- Main --}}
-                    <div class="swiper w-full max-w-110" data-aos="fade-right" data-aos-offset="-250" data-aos-duration="1000">
+                    <div class="swiper w-full max-w-110" data-aos="fade-right" data-aos-offset="-50" data-aos-duration="1000">
                         <div class="swiper-wrapper mb-12">
     
                             @foreach ($creations as $creation)
@@ -207,7 +207,7 @@
                                     @foreach ($creation->images as $image)
                                         <div class="swiper-slide opacity-40 max-w-20 max-h-14">
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down h-14">
+                                                class="object-scale-down rounded-sm h-14">
                                         </div>
                                     @endforeach
                                 @endif
@@ -318,7 +318,7 @@
                                     @foreach ($creation->images as $image)
                                         <div class="swiper-slide opacity-40 max-w-20 max-h-14">
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down h-14">
+                                                class="object-scale-down rounded-sm h-14">
                                         </div>
                                     @endforeach
                                 @endif
@@ -379,7 +379,7 @@
                 <!-- Main + thumbs section -->
                 <div class="flex flex-col w-screen items-center">
                     {{-- Main --}}
-                    <div class="swiper w-full max-w-110" data-aos="fade-down" data-aos-offset="-300" data-aos-duration="1000">
+                    <div class="swiper w-full max-w-110" data-aos="fade-up" data-aos-offset="-300" data-aos-duration="1000">
                         <div class="swiper-wrapper mb-12">
     
                             @foreach ($creations as $creation)
@@ -428,7 +428,7 @@
                                     @foreach ($creation->images as $image)
                                         <div class="swiper-slide opacity-40 max-w-20 max-h-14">
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down h-14">
+                                                class="object-scale-down rounded-sm h-14">
                                         </div>
                                     @endforeach
                                 @endif
@@ -445,7 +445,7 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 md:w-2/5 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
                         {{-- Close --}}
                         <div class="flex justify-start">
@@ -459,21 +459,23 @@
                             </span>
                         </div>
 
-                        <!-- Info -->
+                        <!-- Info about creation -->
                         <div class="w-full">
                             <div class="flex flex-col items-center gap-8">
 
-                                <div class="w-5/6 md:max-w-lg max-h-80 flex justify-center">
+                                {{-- Image --}}
+                                <div class="w-5/6 md:max-w-lg max-h-48 md:max-h-80 flex justify-center">
                                     <img :src="modalContent.image" :alt="modalContent.description"
-                                    class="h-80 object-scale-down shadow-sm border">
+                                    class="h-48 md:h-80 object-scale-down shadow-sm border">
                                 </div>
 
+                                {{-- Text --}}
                                 <div class="flex flex-col gap-3 items-center">
-                                    <p x-text="modalContent.description" class="text-lg font-semibold"></p>
-                                    <p x-text="modalContent.sold" class="text-lg"></p>
-                                    <p x-text="modalContent.price" class="text-lg"></p>
+                                    <p x-text="modalContent.description" class="text-center text-lg font-semibold"></p>
+                                    <p x-text="modalContent.sold" class="text-center text-lg"></p>
+                                    <p x-text="modalContent.price" class="text-center text-lg"></p>
                                     <p x-text="modalContent.saleStatus" class="text-center text-lg"></p>
-                                    <p x-text="modalContent.dimensions" class="text-lg"></p>
+                                    <p x-text="modalContent.dimensions" class="text-center text-lg"></p>
                                 </div>
     
                             </div>
@@ -539,7 +541,7 @@
                                     @foreach ($creation->images as $image)
                                         <div class="swiper-slide opacity-40 max-w-20 max-h-14">
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down h-14">
+                                                class="object-scale-down rounded-sm h-14">
                                         </div>
                                     @endforeach
                                 @endif
