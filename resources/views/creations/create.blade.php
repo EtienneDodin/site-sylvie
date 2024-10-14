@@ -73,7 +73,7 @@
             <div class="flex gap-6 items-center" x-data="{ imagePreview: '' }">
                 <div class="flex flex-col gap-4 items-center">
                     <label for="image" class="font-semibold">Ajouter une image</label>
-                    <input type="file" id="image" name="image" class="file:text-amber-800 file:bg-gray-200 hover:file:bg-gray-300 file:px-3 file:py-1.5 file:mr-2 file:border file:rounded text-gray-600 mt-2" accept="image/*" @change="imagePreview = URL.createObjectURL($event.target.files[0])">
+                    <input type="file" id="image" name="image" class="file:text-amber-800 file:bg-gray-200 hover:file:bg-gray-300 file:px-3 file:py-1.5 file:mr-2 file:border file:border-gray-100 file:rounded text-gray-600 mt-2" accept="image/*" @change="imagePreview = URL.createObjectURL($event.target.files[0])">
 
                     @error('image')
                         <p class="text-rose-700">{{ $message }}</p>
@@ -85,7 +85,7 @@
             </div>
 
             <div class="flex gap-14 items-baseline">
-                <a href="{{ route('creations.index') }}" class="underline underline-offset-2 hover:text-gray-800">Retour au menu</a>
+                <a href="{{ route('creations.index') }}" class="underline underline-offset-2 decoration-gray-400 hover:text-gray-800">Retour au menu</a>
                 <button type="submit" class="bg-gray-800 hover:bg-gray-600 transition duration-200 ease-in-out rounded-xl mt-6 py-2 px-4 text-white">Insérer la création</button>
             </div>
         </div>

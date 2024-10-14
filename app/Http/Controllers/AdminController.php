@@ -158,17 +158,27 @@ class AdminController extends Controller
      */
     public function update(Request $request, Creation $creation)
     {        
-        $validatedData = $request->validate($this->rules());
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'sold' => 'boolean',
+            'description' => 'required|max:255',
+            'dimensions' => 'nullable|max:255',
+            'gallerymsg' => 'boolean',
+            'price' => 'numeric|nullable',
+            'category_id' => 'required|integer|exists:categories,id',
+        ]);
         
-        $creation->name->update($validatedData['name']);
-        $creation->sold->update($validatedData['sold']);
-        $creation->description->update($validatedData['description']);
-        $creation->dimensions->update($validatedData['dimensions']);
-        $creation->gallerymsg->update($validatedData['gallerymsg']);
-        $creation->price->update($validatedData['price']);
-        $creation->category_id->update($validatedData['category_id']);
+        $creation->name = $validatedData['name'];
+        $creation->sold = $validatedData['sold'];
+        $creation->description = $validatedData['description'];
+        $creation->dimensions = $validatedData['dimensions'];
+        $creation->gallerymsg = $validatedData['gallerymsg'];
+        $creation->price = $validatedData['price'];
+        $creation->category_id = $validatedData['category_id'];
 
-        return redirect()->route('creations.index');
+        $creation->save();
+
+        return redirect()->route('creations.edit', $creation->id)->with('status', 'Création modifiée avec succès.');
     }
 
     /**

@@ -39,7 +39,7 @@
         <section id="creations" class="px-10 md:px-20">
 
             <!-- First slider -->
-            <div class="flex flex-col items-center mb-4" x-data="{ open: false, modalContent: {} }">
+            <div class="flex flex-col items-center" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
                 <h3 class="font-semibold font-anek text-5xl pt-12 pb-10 md:pb-16">Les Ours</h3>
                 <!-- Main + thumbs section -->
@@ -48,7 +48,7 @@
                     <div class="swiper w-full max-w-110" data-aos="fade-up" data-aos-duration="1000">
                         <div class="swiper-wrapper mb-12">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 1)
                                     @foreach ($creation->images as $image)
                                         {{-- Image display --}}
@@ -86,25 +86,25 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-6">
-                        <div class="swiper-wrapper">
+                    <div thumbsSlider="" class="mySwiper w-full py-6">
+                        <div class="swiper-wrapper flex justify-center flex-wrap gap-y-0.5">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 1)
-
                                     @foreach ($creation->images as $image)
-                                        <div class="swiper-slide max-w-20 max-h-14">
 
+                                        <div class="swiper-slide max-w-20 overflow-hidden flex justify-center items-center h-14">
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down h-14 rounded-sm">
+                                                class="w-full h-14 object-cover rounded-sm">
                                         </div>
-                                    @endforeach
 
+                                    @endforeach
                                 @endif
                             @endforeach
     
                         </div>
                     </div>
+
                 </div>
                 
                 <!-- Modal Window -->
@@ -114,12 +114,13 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center py-6 gap-6 bg-gray-200 shadow-md p-6 w-4/5 md:w-6/12 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
+                        {{-- Close --}}
                         <div class="flex justify-start">
                             <span @click="open = false"
-                                class="hover:cursor-pointer hover:rotate-90 transition duration-300 ease-in-out">
-                                <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
+                                class="hover:cursor-pointer hover:rotate-90 fill-amber-800 transition duration-300 ease-in-out">
+                                <svg width="50px" height="50px" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
@@ -127,21 +128,23 @@
                             </span>
                         </div>
 
-                        <!-- Info -->
+                        <!-- Info about creation -->
                         <div class="w-full">
-                            <div class="flex flex-col items-center gap-6">
+                            <div class="flex flex-col items-center gap-8">
 
-                                <div class="w-5/6 md:max-w-lg max-h-80 flex justify-center">
+                                {{-- Image --}}
+                                <div class="w-5/6 md:max-w-lg max-h-48 md:max-h-80 flex justify-center">
                                     <img :src="modalContent.image" :alt="modalContent.description"
-                                    class="h-80 object-scale-down shadow-sm border">
+                                    class="h-48 md:h-80 object-scale-down shadow-sm border">
                                 </div>
 
+                                {{-- Text --}}
                                 <div class="flex flex-col gap-3 items-center">
-                                    <p x-text="modalContent.description" class="text-lg font-semibold"></p>
-                                    <p x-text="modalContent.sold" class="text-lg"></p>
-                                    <p x-text="modalContent.price" class="text-lg"></p>
+                                    <p x-text="modalContent.description" class="text-center text-lg font-semibold"></p>
+                                    <p x-text="modalContent.sold" class="text-center text-lg"></p>
+                                    <p x-text="modalContent.price" class="text-center text-lg"></p>
                                     <p x-text="modalContent.saleStatus" class="text-center text-lg"></p>
-                                    <p x-text="modalContent.dimensions"></p>
+                                    <p x-text="modalContent.dimensions" class="text-center text-lg"></p>
                                 </div>
     
                             </div>
@@ -149,10 +152,11 @@
 
                     </div>
                 </div>
+
             </div>
 
             <!-- Second slider -->
-            <div class="flex flex-col items-center mb-4" x-data="{ open: false, modalContent: {} }">
+            <div class="flex flex-col items-center" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
                 <h3 class="font-semibold font-anek text-5xl pt-12 pb-10 md:pb-16">Les Oiseaux</h3>
                 <!-- Main + thumbs section -->
@@ -161,7 +165,7 @@
                     <div class="swiper w-full max-w-110" data-aos="fade-right" data-aos-offset="-50" data-aos-duration="1000">
                         <div class="swiper-wrapper mb-12">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 2)
                                     @foreach ($creation->images as $image)
                                         {{-- Image display --}}
@@ -199,22 +203,25 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-6">
-                        <div class="swiper-wrapper">
+                    <div thumbsSlider="" class="mySwiper w-full py-6">
+                        <div class="swiper-wrapper flex justify-center flex-wrap gap-y-0.5">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 2)
                                     @foreach ($creation->images as $image)
-                                        <div class="swiper-slide opacity-40 max-w-20 max-h-14">
+
+                                        <div class="swiper-slide max-w-20 overflow-hidden flex justify-center items-center h-14">
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down rounded-sm h-14">
+                                                class="w-full h-14 object-cover rounded-sm">
                                         </div>
+
                                     @endforeach
                                 @endif
                             @endforeach
     
                         </div>
                     </div>
+
                 </div>
                 
                 <!-- Modal Window -->
@@ -224,13 +231,13 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center py-6 gap-6 bg-gray-200 shadow-md p-6 w-4/5 md:w-6/12 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
                         {{-- Close --}}
                         <div class="flex justify-start">
                             <span @click="open = false"
-                                class="hover:cursor-pointer hover:rotate-90 transition duration-300 ease-in-out">
-                                <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
+                                class="hover:cursor-pointer hover:rotate-90 fill-amber-800 transition duration-300 ease-in-out">
+                                <svg width="50px" height="50px" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
@@ -238,21 +245,23 @@
                             </span>
                         </div>
 
-                        <!-- Info -->
+                        <!-- Info about creation -->
                         <div class="w-full">
-                            <div class="flex flex-col items-center gap-6">
+                            <div class="flex flex-col items-center gap-8">
 
-                                <div class="w-5/6 md:max-w-lg max-h-80 flex justify-center">
+                                {{-- Image --}}
+                                <div class="w-5/6 md:max-w-lg max-h-48 md:max-h-80 flex justify-center">
                                     <img :src="modalContent.image" :alt="modalContent.description"
-                                    class="h-80 object-scale-down shadow-sm border">
+                                    class="h-48 md:h-80 object-scale-down shadow-sm border">
                                 </div>
 
+                                {{-- Text --}}
                                 <div class="flex flex-col gap-3 items-center">
-                                    <p x-text="modalContent.description" class="text-lg font-semibold"></p>
-                                    <p x-text="modalContent.sold" class="text-lg"></p>
-                                    <p x-text="modalContent.price" class="text-lg"></p>
+                                    <p x-text="modalContent.description" class="text-center text-lg font-semibold"></p>
+                                    <p x-text="modalContent.sold" class="text-center text-lg"></p>
+                                    <p x-text="modalContent.price" class="text-center text-lg"></p>
                                     <p x-text="modalContent.saleStatus" class="text-center text-lg"></p>
-                                    <p x-text="modalContent.dimensions" class="text-lg"></p>
+                                    <p x-text="modalContent.dimensions" class="text-center text-lg"></p>
                                 </div>
     
                             </div>
@@ -260,10 +269,11 @@
 
                     </div>
                 </div>
+
             </div>
 
             <!-- Third slider -->
-            <div class="flex flex-col items-center mb-4" x-data="{ open: false, modalContent: {} }">
+            <div class="flex flex-col items-center" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
                 <h3 class="font-semibold font-anek text-5xl pt-12 pb-10 md:pb-16">Les Marins</h3>
                 <!-- Main + thumbs section -->
@@ -272,7 +282,7 @@
                     <div class="swiper w-full max-w-110">
                         <div class="swiper-wrapper mb-12">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 3)
                                     @foreach ($creation->images as $image)
                                         {{-- Image display --}}
@@ -310,22 +320,25 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-6">
-                        <div class="swiper-wrapper">
+                    <div thumbsSlider="" class="mySwiper w-full py-6">
+                        <div class="swiper-wrapper flex justify-center flex-wrap gap-y-0.5">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 3)
                                     @foreach ($creation->images as $image)
-                                        <div class="swiper-slide opacity-40 max-w-20 max-h-14">
+
+                                        <div class="swiper-slide max-w-20 overflow-hidden flex justify-center items-center h-14">
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down rounded-sm h-14">
+                                                class="w-full h-14 object-cover rounded-sm">
                                         </div>
+
                                     @endforeach
                                 @endif
                             @endforeach
     
                         </div>
                     </div>
+
                 </div>
                 
                 <!-- Modal Window -->
@@ -335,12 +348,13 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center py-6 gap-6 bg-gray-200 shadow-md p-6 w-4/5 md:w-6/12 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
+                        {{-- Close --}}
                         <div class="flex justify-start">
                             <span @click="open = false"
-                                class="hover:cursor-pointer hover:rotate-90 transition duration-300 ease-in-out">
-                                <svg width="50px" height="50px" viewBox="0 0 24 24" fill="none"
+                                class="hover:cursor-pointer hover:rotate-90 fill-amber-800 transition duration-300 ease-in-out">
+                                <svg width="50px" height="50px" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
@@ -348,21 +362,23 @@
                             </span>
                         </div>
 
-                        <!-- Info -->
+                        <!-- Info about creation -->
                         <div class="w-full">
-                            <div class="flex flex-col items-center gap-6">
+                            <div class="flex flex-col items-center gap-8">
 
-                                <div class="w-5/6 md:max-w-lg max-h-80 flex justify-center">
+                                {{-- Image --}}
+                                <div class="w-5/6 md:max-w-lg max-h-48 md:max-h-80 flex justify-center">
                                     <img :src="modalContent.image" :alt="modalContent.description"
-                                    class="h-80 object-scale-down shadow-sm border">
+                                    class="h-48 md:h-80 object-scale-down shadow-sm border">
                                 </div>
 
+                                {{-- Text --}}
                                 <div class="flex flex-col gap-3 items-center">
-                                    <p x-text="modalContent.description" class="text-lg font-semibold"></p>
-                                    <p x-text="modalContent.sold" class="text-lg"></p>
-                                    <p x-text="modalContent.price" class="text-lg"></p>
+                                    <p x-text="modalContent.description" class="text-center text-lg font-semibold"></p>
+                                    <p x-text="modalContent.sold" class="text-center text-lg"></p>
+                                    <p x-text="modalContent.price" class="text-center text-lg"></p>
                                     <p x-text="modalContent.saleStatus" class="text-center text-lg"></p>
-                                    <p x-text="modalContent.dimensions" class="text-lg"></p>
+                                    <p x-text="modalContent.dimensions" class="text-center text-lg"></p>
                                 </div>
     
                             </div>
@@ -370,10 +386,11 @@
 
                     </div>
                 </div>
+
             </div>
 
             <!-- Animaux des sous-bois -->
-            <div class="flex flex-col items-center mb-4" x-data="{ open: false, modalContent: {} }">
+            <div class="flex flex-col items-center" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
                 <h3 class="font-semibold font-anek text-5xl text-center pt-12 pb-10 md:pb-16">Les Animaux des sous-bois</h3>
                 <!-- Main + thumbs section -->
@@ -382,7 +399,7 @@
                     <div class="swiper w-full max-w-110" data-aos="fade-up" data-aos-offset="-300" data-aos-duration="1000">
                         <div class="swiper-wrapper mb-12">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 4)
                                     @foreach ($creation->images as $image)
                                         {{-- Image display --}}
@@ -420,22 +437,25 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-6">
-                        <div class="swiper-wrapper">
+                    <div thumbsSlider="" class="mySwiper w-full py-6">
+                        <div class="swiper-wrapper flex justify-center flex-wrap gap-y-0.5">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 4)
                                     @foreach ($creation->images as $image)
-                                        <div class="swiper-slide opacity-40 max-w-20 max-h-14">
+
+                                        <div class="swiper-slide max-w-20 overflow-hidden flex justify-center items-center h-14">
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down rounded-sm h-14">
+                                                class="w-full h-14 object-cover rounded-sm">
                                         </div>
+
                                     @endforeach
                                 @endif
                             @endforeach
     
                         </div>
                     </div>
+
                 </div>
                 
                 <!-- Modal Window -->
@@ -495,7 +515,7 @@
                     <div class="swiper w-full max-w-110">
                         <div class="swiper-wrapper mb-12">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 5)
                                     @foreach ($creation->images as $image)
                                         {{-- Image display --}}
@@ -533,16 +553,18 @@
                     </div>
     
                     <!-- Thumbs -->
-                    <div thumbsSlider="" class="mySwiper py-6">
-                        <div class="swiper-wrapper">
+                    <div thumbsSlider="" class="mySwiper w-full py-6">
+                        <div class="swiper-wrapper flex justify-center flex-wrap gap-y-0.5">
     
-                            @foreach ($creations as $creation)
+                            @foreach ($creations->reverse() as $creation)
                                 @if ($creation->category_id === 5)
                                     @foreach ($creation->images as $image)
-                                        <div class="swiper-slide opacity-40 max-w-20 max-h-14">
+
+                                        <div class="swiper-slide max-w-20 overflow-hidden flex justify-center items-center h-14">
                                             <img src="{{ $image->path }}" alt="{{ $creation->description }}"
-                                                class="object-scale-down rounded-sm h-14">
+                                                class="w-full h-14 object-cover rounded-sm">
                                         </div>
+
                                     @endforeach
                                 @endif
                             @endforeach
@@ -558,7 +580,7 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 md:w-2/5 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
                         {{-- Close --}}
                         <div class="flex justify-start">
@@ -572,21 +594,23 @@
                             </span>
                         </div>
 
-                        <!-- Info -->
+                        <!-- Info about creation -->
                         <div class="w-full">
                             <div class="flex flex-col items-center gap-8">
 
-                                <div class="w-5/6 md:max-w-lg max-h-80 flex justify-center">
+                                {{-- Image --}}
+                                <div class="w-5/6 md:max-w-lg max-h-48 md:max-h-80 flex justify-center">
                                     <img :src="modalContent.image" :alt="modalContent.description"
-                                    class="h-80 object-scale-down shadow-sm border">
+                                    class="h-48 md:h-80 object-scale-down shadow-sm border">
                                 </div>
 
+                                {{-- Text --}}
                                 <div class="flex flex-col gap-3 items-center">
-                                    <p x-text="modalContent.description" class="text-lg font-semibold"></p>
-                                    <p x-text="modalContent.sold" class="text-lg"></p>
-                                    <p x-text="modalContent.price" class="text-lg"></p>
+                                    <p x-text="modalContent.description" class="text-center text-lg font-semibold"></p>
+                                    <p x-text="modalContent.sold" class="text-center text-lg"></p>
+                                    <p x-text="modalContent.price" class="text-center text-lg"></p>
                                     <p x-text="modalContent.saleStatus" class="text-center text-lg"></p>
-                                    <p x-text="modalContent.dimensions" class="text-lg"></p>
+                                    <p x-text="modalContent.dimensions" class="text-center text-lg"></p>
                                 </div>
     
                             </div>
@@ -594,6 +618,7 @@
 
                     </div>
                 </div>
+
             </div>
 
         </section>

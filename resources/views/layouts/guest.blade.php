@@ -25,8 +25,6 @@
 
 <body class="bg-light-gray font-raleway" x-data>
 
-    <x-banner />
-
     <header>
         <!-- Main nav -->
         <nav class="p-6 hidden lg:block">

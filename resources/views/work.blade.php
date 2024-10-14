@@ -4,7 +4,7 @@
         <section>
             <div class="bg-card-orange flex flex-col lg:flex-row items-center rounded-lg px-4 pb-4 lg:pb-0 lg:ml-4 justify-around gap-6">
                 <div class="max-w-xl">
-                    <p class="font-medium leading-relaxed px-6 py-8 text-gray-800 text-2xl">Toutes les pièces sont modelées en grès, puis cuites et enfumées. Mes créations sont toutes des pièces uniques nées de ma rencontre et ma fascination pour l'animal.</p>
+                    <p class="font-medium leading-relaxed px-6 py-12 md:py-8 text-gray-800 text-2xl">Toutes les pièces sont modelées en grès, puis cuites et enfumées. Mes créations sont toutes des pièces uniques nées de ma rencontre et ma fascination pour l'animal.</p>
                 </div>
                 {{-- Picture --}}
                 <div>
@@ -20,17 +20,22 @@
                 {{-- Text --}}
                 <div class="flex flex-col items-center gap-6">
                     <h1 class="font-raleway text-2xl font-normal">Le Raku</h1>
-                    <p class="font-medium text-slate-500 p-6 lg:px-8 text-xl">Le Raku est une technique de cuisson ancestrale originaire
+                    <p class="font-medium text-slate-500 p-6 xl:px-8 text-xl">Le Raku est une technique de cuisson ancestrale originaire
                         du Japon. Après une première cuisson qui permet d'obtenir un biscuit, les pièces sont émaillées,
                         remises au four et montées en température jusqu'à la fonte de l'émail. Le four est alors ouvert, les
                         pièces sorties une à une avec des pinces. Un choc thermique se crée, faisant éclater l'émail. C'est
                         alors l'enfumage qui va révéler les fissures sur les sculptures, les rendant uniques.</p>
                 </div>
 
-                {{-- Raku pics --}}
+                {{-- Raku pictures --}}
                 <div class="flex flex-col md:flex-row gap-6">
-                    <img src="images/cuisson_1.jpg" alt="cuisson de poterie raku" class="max-w-xs object-cover rounded">
-                    <img src="images/cuisson_2.jpg" alt="cuisson de poterie raku" class="max-w-xs rounded">
+                    <div class="h-64 w-80 lg:w-64 xl:w-80">
+                        <img src="images/cuisson_1.jpg" alt="Image de cuisson de poterie raku" class="object-cover rounded">
+                    </div>
+
+                    <div class="h-64 w-80 lg:w-64 xl:w-80">
+                        <img src="images/cuisson_2.jpg" alt="Image de cuisson de poterie raku" class="object-cover h-64 rounded">
+                    </div>
                 </div>
                 
             </div>
@@ -39,7 +44,7 @@
         <!-- Expo Avanne -->
         <section class="py-20">
             <div class="flex flex-col lg:flex-row justify-around items-center gap-10">
-                <div class="flex flex-col gap-16 pb-8 px-4">
+                <div class="flex flex-col gap-20 md:gap-16 pb-8 px-4">
                     <h2 class="font-medium text-2xl text-center text-amber-900">Les sculptures mises en décor par l'artiste lors des expositions.</h2>
                     <h2 class="text-center text-xl">Photographie de l'exposition d'Avanne-Aveney en avril 2024.</h2>
                 </div>

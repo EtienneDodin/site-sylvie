@@ -74,16 +74,26 @@ for (let i = 0; i < customSliders.length; i++) {
         const thumbs = document.querySelectorAll('.mySwiper-' + i + ' .swiper-slide');
         thumbs.forEach((thumb, index) => {
           if (index === activeIndex) {
-            thumb.classList.add('opacity-100');
             thumb.classList.remove('opacity-40');
+            thumb.classList.add('opacity-100');
           } else {
-            thumb.classList.add('opacity-40');
             thumb.classList.remove('opacity-100');
+            thumb.classList.add('opacity-40');
           }
         });
       }
     }
 
+  });
+
+  // Initial setting of opacity classes
+  const thumbs = document.querySelectorAll('.mySwiper-' + i + ' .swiper-slide');
+  thumbs.forEach((thumb, index) => {
+    if (index === 0) {
+      thumb.classList.add('opacity-100');
+    } else {
+      thumb.classList.add('opacity-40');
+    }
   });
 
 };
