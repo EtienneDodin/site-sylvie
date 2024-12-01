@@ -1,4 +1,8 @@
 <x-guest-layout>
+    <x-slot name="title">
+        Mentions légales - Sylvie Buatois, céramiste Raku
+    </x-slot>
+
     <main>    
         <div class="flex flex-col items-center">
             <section class="max-w-5xl flex flex-col gap-9 px-12">

@@ -23,14 +23,11 @@ window.onload = function () {
 
     emailjs.sendForm('service_8ob6mvb', 'contact', this)
       .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        // alert('Votre message a bien été envoyé !');
-
+        // console.log('SUCCESS!', response.status, response.text);
         window.dispatchEvent(new CustomEvent('custom-alert', { detail: { message: 'Votre message a bien été envoyé !' } }));
 
       }, (error) => {
         console.log('FAILED...', error);
-
         window.dispatchEvent(new CustomEvent('custom-alert', { detail: { message: 'Échec de l\'envoi du message.' } }));
       });
   });

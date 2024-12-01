@@ -9,7 +9,7 @@
     <meta name="author" content="Etienne Dodin">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $title }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
@@ -30,13 +30,13 @@
         <nav class="p-6 hidden lg:block">
             <ul class="flex justify-end items-center gap-5 pr-8 text-lg font-light">
                 <li><a href="{{ route('index') }}"
-                        class="relative pb-1 after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-[#838386] after:scale-0 after:transition duration-100 ease-out hover:after:scale-100">Accueil</a>
+                        class="relative pb-1 after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-[#838386] after:scale-0 after:transition duration-200 ease-out hover:after:scale-100 hover:text-gray-600">Accueil</a>
                 </li>
                 <li><a href="{{ route('work') }}"
-                        class="relative pb-1 after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-[#838386] after:scale-0 after:transition duration-100 ease-out hover:after:scale-100">Mon
+                        class="relative pb-1 after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-[#838386] after:scale-0 after:transition duration-200 ease-out hover:after:scale-100 hover:text-gray-600">Mon
                         travail</a></li>
                 <li><a href="{{ route('contact') }}"
-                        class="relative pb-1 after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-[#838386] after:scale-0 after:transition duration-100 ease-out hover:after:scale-100">Me
+                        class="relative pb-1 after:content-[''] after:absolute after:w-full after:h-px after:bottom-0 after:left-0 after:bg-[#838386] after:scale-0 after:transition duration-200 ease-out hover:after:scale-100 hover:text-gray-600">Me
                         contacter</a></li>
             </ul>
         </nav>

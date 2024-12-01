@@ -178,7 +178,7 @@ class AdminController extends Controller
 
         $creation->save();
 
-        return redirect()->route('creations.edit', $creation->id)->with('status', 'Création modifiée avec succès.');
+        return redirect()->route('creations.index')->with('status', 'Création modifiée avec succès.');
     }
 
     /**

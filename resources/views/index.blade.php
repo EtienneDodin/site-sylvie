@@ -1,4 +1,8 @@
 <x-guest-layout>
+    <x-slot name="title">
+        Sylvie Buatois - Artiste créateur céramiste raku
+    </x-slot>
+
     <main>
         <div class="bg-neutral-200 flex flex-col lg:flex-row md:justify-around shadow-sm pb-4">
             <!-- Main headings -->
@@ -114,14 +118,12 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md py-10 px-4 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
                         {{-- Close --}}
-                        <div class="flex justify-start">
-                            <span @click="open = false"
-                                class="hover:cursor-pointer hover:rotate-90 fill-amber-800 transition duration-300 ease-in-out">
-                                <svg width="50px" height="50px" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
+                        <div class="flex justify-start border p-px border-gray-300 bg-gray-100/75 hover:bg-gray-200 transition duration-300 ease-in-out rounded-lg">
+                            <span @click="open = false">
+                                <svg class="opacity-55 hover:cursor-pointer transition duration-300 ease-in-out" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
@@ -162,7 +164,7 @@
                 <!-- Main + thumbs section -->
                 <div class="flex flex-col w-screen items-center">
                     {{-- Main --}}
-                    <div class="swiper w-full max-w-110" data-aos="fade-right" data-aos-offset="-50" data-aos-duration="1000">
+                    <div class="swiper w-full max-w-110" data-aos="fade-right" data-aos-offset="-300" data-aos-duration="1000">
                         <div class="swiper-wrapper mb-12">
     
                             @foreach ($creations->reverse() as $creation)
@@ -231,14 +233,12 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md py-10 px-4 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
                         {{-- Close --}}
-                        <div class="flex justify-start">
-                            <span @click="open = false"
-                                class="hover:cursor-pointer hover:rotate-90 fill-amber-800 transition duration-300 ease-in-out">
-                                <svg width="50px" height="50px" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
+                        <div class="flex justify-start border p-px border-gray-300 bg-gray-100/75 hover:bg-gray-200 transition duration-300 ease-in-out rounded-lg">
+                            <span @click="open = false">
+                                <svg class="opacity-55 hover:cursor-pointer transition duration-300 ease-in-out" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
@@ -348,14 +348,12 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md py-10 px-4 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
                         {{-- Close --}}
-                        <div class="flex justify-start">
-                            <span @click="open = false"
-                                class="hover:cursor-pointer hover:rotate-90 fill-amber-800 transition duration-300 ease-in-out">
-                                <svg width="50px" height="50px" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
+                        <div class="flex justify-start border p-px border-gray-300 bg-gray-100/75 hover:bg-gray-200 transition duration-300 ease-in-out rounded-lg">
+                            <span @click="open = false">
+                                <svg class="opacity-55 hover:cursor-pointer transition duration-300 ease-in-out" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
@@ -465,14 +463,12 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md py-10 px-4 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
                         {{-- Close --}}
-                        <div class="flex justify-start">
-                            <span @click="open = false"
-                                class="hover:cursor-pointer hover:rotate-90 fill-amber-800 transition duration-300 ease-in-out">
-                                <svg width="50px" height="50px" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
+                        <div class="flex justify-start border p-px border-gray-300 bg-gray-100/75 hover:bg-gray-200 transition duration-300 ease-in-out rounded-lg">
+                            <span @click="open = false">
+                                <svg class="opacity-55 hover:cursor-pointer transition duration-300 ease-in-out" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
@@ -508,7 +504,7 @@
             <!-- Exotiques -->
             <div class="flex flex-col items-center mb-16" x-data="{ open: false, modalContent: {} }">
                 {{-- Title --}}
-                <h3 class="font-semibold font-anek text-5xl pt-12 pb-10 md:pb-16">Les Exotiques</h3>
+                <h3 class="font-semibold font-anek text-5xl text-center pt-12 pb-10 md:pb-16">Les Exotiques</h3>
                 <!-- Main + thumbs section -->
                 <div class="flex flex-col w-screen items-center">
                     {{-- Main --}}
@@ -580,14 +576,12 @@
 
                 <div x-show="open" x-cloak x-transition:enter.duration.300ms x-transition:leave.duration.300ms class="fixed z-10 top-0 left-0 w-full h-full flex justify-center items-center">
 
-                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md p-10 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
+                    <div @click.outside="open = false" class="flex flex-col items-center gap-10 bg-gray-200 shadow-md py-10 px-4 mb-2 w-4/5 lg:w-2/5 z-10 rounded-lg">
 
                         {{-- Close --}}
-                        <div class="flex justify-start">
-                            <span @click="open = false"
-                                class="hover:cursor-pointer hover:rotate-90 fill-amber-800 transition duration-300 ease-in-out">
-                                <svg width="50px" height="50px" viewBox="0 0 24 24"
-                                    xmlns="http://www.w3.org/2000/svg">
+                        <div class="flex justify-start border p-px border-gray-300 bg-gray-100/75 hover:bg-gray-200 transition duration-300 ease-in-out rounded-lg">
+                            <span @click="open = false">
+                                <svg class="opacity-55 hover:cursor-pointer transition duration-300 ease-in-out" width="40px" height="40px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M5 5L19 19M5 19L19 5" stroke="#000000" stroke-width="2"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>

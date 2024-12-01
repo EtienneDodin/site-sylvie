@@ -14,10 +14,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        for ($i = 0; $i < 5; $i++) {
+        $categoryNames = [
+            'Ours',
+            'Oiseaux',
+            'Marins',
+            'Animaux des sous-bois',
+            'Exotiques'
+        ];
+
+        foreach ($categoryNames as $name) {
             Category::create([
-                'category' => 'Test Cat '.$i,
-        ]);
+                'name' => $name,
+            ]);
         }
     }
 }

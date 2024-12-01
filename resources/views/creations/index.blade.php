@@ -63,7 +63,7 @@
                             <p class="text-center">Catégorie : 
                                 @foreach ($categories as $category)
                                     @if ($category->id === $creation->category_id)
-                                        {{ $category->category }}
+                                        {{ $category->name }}
                                     @endif
                                 @endforeach
                             </p>

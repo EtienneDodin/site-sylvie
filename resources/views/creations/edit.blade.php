@@ -45,7 +45,7 @@
         </div>
 
         {{-- Main container --}}
-        <div class="flex gap-32 justify-center py-6 border-t">
+        <div class="flex gap-32 justify-center py-6">
 
             <form action="{{ route('creations.update', $creation) }}" method="post" enctype="multipart/form-data">
                 @method('PUT')
@@ -102,7 +102,7 @@
 
                         <select name="category_id" id="category_id" class="rounded w-64 border-gray-300">
                             @foreach ($categories as $category)
-                                <option value="{{ $category->id }}" {{ $category->id == $creation->category_id ? 'selected' : '' }}>{{ $category->category }}</option>
+                                <option value="{{ $category->id }}" {{ $category->id == $creation->category_id ? 'selected' : '' }}>{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>

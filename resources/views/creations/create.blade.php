@@ -10,7 +10,7 @@
 
             <div class="flex flex-col gap-3 items-center">
                 <label for="name" class="font-semibold">Nom de la création</label>
-                <input type="text" id="name" name="name" value="{{ old('name') }}" class="rounded-md border-gray-300 w-64">
+                <input type="text" id="name" name="name" value="{{ old('name') }}" class="rounded-md border-gray-300 w-72">
 
                 @error('name')
                     <p class="text-rose-700">{{ $message }}</p>
@@ -25,7 +25,7 @@
     
             <div class="flex flex-col gap-3 items-center">
                 <label for="description" class="font-semibold">Description</label>
-                <textarea id="description" name="description" value="{{ old('description') }}" class="rounded-md border-gray-300 w-64 h-28"></textarea>
+                <textarea id="description" name="description" value="{{ old('description') }}" class="rounded-md border-gray-300 w-72 h-28"></textarea>
 
                 @error('description')
                     <p class="text-rose-700">{{ $message }}</p>
@@ -34,7 +34,7 @@
     
             <div class="flex flex-col gap-3 items-center">
                 <label for="dimensions" class="font-semibold">Dimensions</label>
-                <input type="text" id="dimensions" name="dimensions" value="{{ old('dimensions') }}" class="rounded-md border-gray-300 w-64">
+                <input type="text" id="dimensions" name="dimensions" value="{{ old('dimensions') }}" class="rounded-md border-gray-300 w-72">
             </div>
     
             <div class="flex gap-4 items-center">
@@ -45,7 +45,7 @@
     
             <div class="flex flex-col gap-3 items-center">
                 <label for="price" class="font-semibold">Prix</label>
-                <input type="text" id="price" name="price" class="rounded-md border-gray-300 w-64">
+                <input type="text" id="price" name="price" class="rounded-md border-gray-300 w-72">
 
                 @error('price')
                     <p class="text-rose-700">{{ $message }}</p>
@@ -55,11 +55,11 @@
             <div class="flex flex-col gap-3 items-center">
                 <label for="category_id" class="font-semibold">Catégorie</label>
 
-                <select name="category_id" id="category_id" class="w-64 border-gray-300 rounded-md">
+                <select name="category_id" id="category_id" class="w-72 border-gray-300 rounded-md">
     
                     @foreach ($categories as $category)
                         <option value="{{ $category->id }}" {{ $category->id == old('category_id') ? 'selected' : '' }}>
-                            {{ $category->category }}
+                            {{ $category->name }}
                         </option>
                     @endforeach
     
